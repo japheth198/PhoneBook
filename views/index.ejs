@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phone Book</title>
+</head>
+<body>
+    <div class="box" id="heading">
+        <h1><%= date %></h1>
+    </div>
+
+    <div class="box">
+        <% for(let i = 0; i < toDoItems.length; i++) { %>
+            <form action="/delete" method="POST">
+                <div class="item">
+                    <input name="checkbox" value="<%= toDoItems[i].id %>" type="checkbox" onchange="this.form.submit()">
+                    <p><%= toDoItems[i].description %></p>
+                </div>
+            </form>
+            
+        <% } %>
+        <form action="/" method="POST">
+            <input type="text" name="newTask" placeholder="Add New Task">
+            <button type="submit">+</button>
+        </form>
+    </div>
+
+    <footer>
+        <span>JJ &#169 2021</span>
+    </footer>
+</body>
+</html>
